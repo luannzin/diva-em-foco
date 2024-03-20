@@ -10,13 +10,11 @@ const Post = {
         ...doc.data(),
       }));
 
-      return {
-        ...posts,
-      };
+      return posts;
     } catch (error) {
       console.error("Error getting documents: ", error);
       return {
-        error: error,
+        error,
       };
     }
   },
@@ -30,6 +28,7 @@ const Post = {
     try {
       const docRef = await addDoc(collection(db, "posts"), {
         title,
+        slug: title.toLowerCase().replaceAll(" ", "-"),
         content,
         keywords,
         author: "luannzin",

@@ -4,5 +4,5 @@ import Post from "../models/post";
 export async function GET() {
   const data = await Post.index();
 
-  return NextResponse.json({ ...data }, { status: 200 });
+  return NextResponse.json(data, { status: 200 });
 }
