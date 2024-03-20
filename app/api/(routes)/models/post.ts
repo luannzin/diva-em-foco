@@ -28,8 +28,11 @@ const Post = {
     try {
       const docRef = await addDoc(collection(db, "posts"), {
         title,
-        slug: title.toLowerCase().replaceAll(" ", "-"),
-        content,
+        slug: `${title
+          .replace(/[^\w\s]/gi, "")
+          .toLowerCase()
+          .replaceAll(" ", "-")}-${Date.now()}`,
+        content: `${content}`,
         keywords,
         author: "luannzin",
         created_at: new Date().toISOString(),
@@ -45,16 +48,16 @@ const Post = {
       };
     }
   },
-  id: async (id: string) => {
+  slug: async (slug: string) => {
     try {
       const docRef = await getDocs(collection(db, "posts"));
       const posts = docRef.docs.map((doc) => ({
         id: doc.id,
-        ...doc.data(),
+        ...(doc.data() as { slug: string }),
       }));
 
       return {
-        ...posts.find((post) => post.id === id),
+        ...posts.find((post) => post.slug === slug),
       };
     } catch (error) {
       console.error("Error getting documents: ", error);

@@ -16,9 +16,6 @@ export default async function Home() {
 
   return (
     <div>
-      <header className="py-8">
-        <strong className="text-xl">Blog</strong>
-      </header>
       <main>
         {data && data.length > 0 ? (
           data.map(
@@ -29,11 +26,13 @@ export default async function Home() {
               content: string;
             }) => (
               <Link key={post.id} href={`/post/${post.slug}`}>
-                <div key={post.id} className="mb-4">
-                  <h2 className="text-xl">{post.title}</h2>
-                  <p>
-                    {post.content.length > 24
-                      ? `${post.content.slice(0, 24)}...`
+                <div key={post.id} className="mb-8">
+                  <h2 className="text-xl font-bold text-zinc-800">
+                    {post.title}
+                  </h2>
+                  <p className="text-sm text-zinc-500">
+                    {post.content.length > 64
+                      ? `${post.content.slice(0, 64)}...`
                       : post.content}
                   </p>
                 </div>

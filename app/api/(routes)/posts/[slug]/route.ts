@@ -4,9 +4,9 @@ import Post from "../../models/post";
 export async function GET(request: Request) {
   const url = new URL(request.url);
 
-  const id = url.pathname.replace("/api/posts/", "");
+  const slug = url.pathname.replace("/api/posts/", "");
 
-  const response = await Post.id(id);
+  const response = await Post.slug(slug);
 
   return NextResponse.json({ ...response }, { status: 200 });
 }

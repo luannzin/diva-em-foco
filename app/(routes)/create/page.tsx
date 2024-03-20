@@ -62,7 +62,7 @@ const CreatePost = () => {
   };
 
   return (
-    <div className="w-screen h-screen flex items-center justify-center">
+    <div className="w-full mt-64 flex items-center justify-center">
       <form
         onSubmit={(e) => {
           e.preventDefault();
