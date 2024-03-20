@@ -19,7 +19,7 @@ export default function RootLayout({
       <body
         className={`${inter.className} w-full h-full flex flex-col items-center`}
       >
-        <div className="max-w-[1400px] w-full flex px-8">{children}</div>
+        <div className="max-w-[1200px] w-full flex px-8">{children}</div>
       </body>
     </html>
   );

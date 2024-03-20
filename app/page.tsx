@@ -1,25 +1,15 @@
-"use client";
-
 import Link from "next/link";
-import { useEffect, useState } from "react";
+// import { useEffect } from "react";
 
-export default function Home() {
-  const [data, setData] = useState([]);
+const renderPosts = async () => {
+  const response = await fetch("http://localhost:3000/api/posts");
+  const data = await response.json();
 
-  const renderPosts = async () => {
-    const response = await fetch("/api/posts");
-    const data = await response.json();
-    setData(data);
-  };
+  return data;
+};
 
-  useEffect(() => {
-    renderPosts();
-  }, []);
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
-
+export default async function Home() {
+  const data = await renderPosts();
   if (!data) {
     return <p>Carregando...</p>;
   }
