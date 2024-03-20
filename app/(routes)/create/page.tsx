@@ -7,11 +7,17 @@ const CreatePost = () => {
 
   const [inputLogin, setInputLogin] = useState<string>("");
 
+  const [data, setData] = useState({
+    title: "",
+    content: "",
+    keywords: "",
+  });
+
   useEffect(() => {
     if (localStorage.getItem("boblog:authorization")) {
       setAuthorization(localStorage.getItem("boblog:authorization"));
     }
-  }, [localStorage]);
+  }, []);
 
   if (!authorization || authorization !== "boblog4312") {
     return (
@@ -33,12 +39,35 @@ const CreatePost = () => {
     );
   }
 
+  const createPost = async () => {
+    try {
+      await fetch("/api/posts/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          // Authorization: "Bearer " + authorization,
+        },
+        body: JSON.stringify({
+          title: data.title,
+          content: data.content,
+          keywords: data.keywords,
+        }),
+      });
+    } catch (error) {
+      //
+    } finally {
+      alert("Finalizado");
+      location.reload();
+    }
+  };
+
   return (
     <div className="w-screen h-screen flex items-center justify-center">
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          alert("Post criado com sucesso");
+
+          createPost();
           // location.reload();
         }}
         className="w-[600px] gap-4 flex flex-col items-center justify-center"
@@ -47,15 +76,24 @@ const CreatePost = () => {
           className="w-full border border-black rounded-lg py-2 px-4"
           type="text"
           placeholder="Nome do post"
+          onChange={(e) => {
+            setData({ ...data, title: e.target.value });
+          }}
         />
         <textarea
           className="w-full border border-black rounded-lg py-2 px-4"
           placeholder="Conteúdo do post"
+          onChange={(e) => {
+            setData({ ...data, content: e.target.value });
+          }}
         />
         <input
           className="w-full border border-black rounded-lg py-2 px-4"
           type="text"
           placeholder="Keywords"
+          onChange={(e) => {
+            setData({ ...data, keywords: e.target.value });
+          }}
         />
         <button className="w-full" type="submit">
           Criar
