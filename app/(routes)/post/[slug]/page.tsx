@@ -20,12 +20,12 @@ export async function generateMetadata({
   const data = await renderPost(params);
 
   return {
-    title: data.title,
+    title: `${data.title} - Blog Diva em foco - Dicas sobre Cabelos, Skincare e Mais :)`,
     description: `${data.content.slice(0, 120)}...`,
-    keywords: data.keywords,
+    keywords: `diva em foco, diva, foco, ${data.keywords}`,
     openGraph: {
       description: `${data.content.slice(0, 120)}...`,
-      title: data.title,
+      title: `${data.title} - Blog Diva em foco - Dicas sobre Cabelos, Skincare e Mais :)`,
       type: "article",
     },
   };
