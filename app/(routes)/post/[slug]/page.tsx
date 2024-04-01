@@ -1,4 +1,6 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
+import "@/app/mdx.css";
+import { Metadata } from "next";
 
 const renderPost = async ({ slug }: { slug: string }) => {
   console.log(slug);
@@ -9,6 +11,25 @@ const renderPost = async ({ slug }: { slug: string }) => {
 
   return data;
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const data = await renderPost(params);
+
+  return {
+    title: data.title,
+    description: `${data.content.slice(0, 120)}...`,
+    keywords: data.keywords,
+    openGraph: {
+      description: `${data.content.slice(0, 120)}...`,
+      title: data.title,
+      type: "article",
+    },
+  };
+}
 
 const Post = async ({ params }: { params: { slug: string } }) => {
   const data = await renderPost(params);

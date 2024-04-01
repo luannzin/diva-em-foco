@@ -1,0 +1,83 @@
+/* Reset default styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Set a max width for the content */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style headings */
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Style paragraphs */
+p {
+  margin-bottom: 20px;
+}
+
+/* Style links */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Style code blocks */
+pre {
+  background-color: #f8f8f8;
+  padding: 10px;
+  border-radius: 4px;
+  overflow: auto;
+}
+
+code {
+  font-family: Consolas, monospace;
+}
+
+/* Style blockquotes */
+blockquote {
+  border-left: 4px solid #ccc;
+  padding-left: 10px;
+  margin-left: 0;
+  font-style: italic;
+}
+
+/* Style lists */
+ul,
+ol {
+  margin-bottom: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+/* Style images */
+img {
+  max-width: 100%;
+  height: auto;
+}
