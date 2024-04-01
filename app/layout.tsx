@@ -6,8 +6,8 @@ import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Blog Diva em foco - Dicas sobre Cabelos, Skincare e Mais :)",
-  description: "Blog Diva em foco - Dicas sobre Cabelos, Skincare e Mais :)",
+  title: "Diva em Foco - Dicas sobre Cabelos, Skincare e Mais :)",
+  description: "Diva em Foco - Dicas sobre Cabelos, Skincare e Mais :)",
 };
 
 export default function RootLayout({
