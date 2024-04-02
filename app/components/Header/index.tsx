@@ -12,7 +12,7 @@ const Header = () => {
       <nav className="flex items-center gap-4">
         {headerLinks.map((link: HeaderLink) => (
           <Link key={link.tag} href={link.href} className="p-2 group">
-            <strong className="text-sm text-black py-2 group-hover:border-b group-hover:border-b-rose-500 transition-all duration-150 ease-in-out uppercase">
+            <strong className="text-pretty text-sm text-black py-2 group-hover:border-b group-hover:border-b-rose-500 transition-all duration-150 ease-in-out uppercase">
               {link.name}
             </strong>
           </Link>

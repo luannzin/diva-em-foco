@@ -12,6 +12,7 @@ const CreatePost = () => {
     title: "",
     content: "",
     keywords: "",
+    category: "",
   });
 
   useEffect(() => {
@@ -52,6 +53,7 @@ const CreatePost = () => {
           title: data.title,
           content: data.content,
           keywords: data.keywords,
+          category: data.category,
         }),
       });
     } catch (error) {
@@ -97,7 +99,12 @@ const CreatePost = () => {
           }}
         />
         <label className="w-full">
-          <select className="w-full border border-black rounded-lg py-2 px-4">
+          <select
+            onChange={(e) => {
+              setData({ ...data, category: e.target.value });
+            }}
+            className="w-full border border-black rounded-lg py-2 px-4"
+          >
             {headerLinks.map((link: HeaderLink) => (
               <option key={link.tag} value={link.tag}>
                 {link.name}

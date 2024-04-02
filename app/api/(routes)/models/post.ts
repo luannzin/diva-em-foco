@@ -22,8 +22,9 @@ const Post = {
     title: string;
     content: string;
     keywords: string;
+    category: string;
   }) => {
-    const { title, content, keywords } = data;
+    const { title, content, keywords, category } = data;
 
     try {
       const docRef = await addDoc(collection(db, "posts"), {
@@ -34,6 +35,7 @@ const Post = {
           .replaceAll(" ", "-")}-${Date.now()}`,
         content: `${content}`,
         keywords,
+        category,
         author: "luannzin",
         created_at: new Date().toISOString(),
       });
