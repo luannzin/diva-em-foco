@@ -1,5 +1,6 @@
 "use client";
 
+import { type HeaderLink, headerLinks } from "@/app/config/nav";
 import { useEffect, useState } from "react";
 
 const CreatePost = () => {
@@ -95,6 +96,15 @@ const CreatePost = () => {
             setData({ ...data, keywords: e.target.value });
           }}
         />
+        <label className="w-full">
+          <select className="w-full border border-black rounded-lg py-2 px-4">
+            {headerLinks.map((link: HeaderLink) => (
+              <option key={link.tag} value={link.tag}>
+                {link.name}
+              </option>
+            ))}
+          </select>
+        </label>
         <button className="w-full" type="submit">
           Criar
         </button>
