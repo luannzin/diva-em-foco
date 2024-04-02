@@ -4,7 +4,7 @@ import { Metadata } from "next";
 
 const renderPost = async ({ slug }: { slug: string }) => {
   console.log(slug);
-  const response = await fetch(`http://localhost:3000/api/posts/${slug}`);
+  const response = await fetch(`/api/posts/${slug}`);
   const data = await response.json();
 
   console.log(data);

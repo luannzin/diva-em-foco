@@ -3,7 +3,7 @@ import { headerLinks } from "./config/nav";
 // import { useEffect } from "react";
 
 const renderPosts = async () => {
-  const response = await fetch("http://localhost:3000/api/posts");
+  const response = await fetch("/api/posts");
   const data = await response.json();
 
   return data;
