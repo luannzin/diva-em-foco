@@ -37,12 +37,12 @@ export default async function Home() {
               </span>
             </div>
           </div>
-          <div className="flex flex-col w-full h-full">
+          <div className="flex flex-col w-full h-full rounded-sm">
             <div className="flex bg-rose-300 h-full w-full"></div>
             <div className="flex bg-rose-400 h-full w-full"></div>
           </div>
         </div>
-        {data && data.length > 0 ? (
+        {/* {data && data.length > 0 ? (
           data.map(
             (post: {
               id: string;
@@ -66,7 +66,7 @@ export default async function Home() {
           )
         ) : (
           <p>Nenhum post encontrado</p>
-        )}
+        )} */}
       </main>
     </div>
   );
