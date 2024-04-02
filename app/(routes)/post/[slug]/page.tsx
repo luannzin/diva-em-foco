@@ -37,9 +37,9 @@ const Post = async ({ params }: { params: { slug: string } }) => {
   return (
     <div className="flex flex-col gap-16">
       <h1 className="text-4xl font-bold leading-10">{data.title}</h1>
-      <main className="flex flex-col gap-2 text-base">
+      <article className="flex flex-col gap-2 text-base">
         <MDXRemote source={data.content} />
-      </main>
+      </article>
     </div>
   );
 };
