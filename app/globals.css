@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+::-moz-selection {
+  color: #ffe4e6;
+  background: #f43f5e;
+}
+
+::selection {
+  color: #ffe4e6;
+  background: #f43f5e;
+}

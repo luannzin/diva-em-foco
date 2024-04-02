@@ -19,10 +19,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
-        <link rel="shortcut icon" href="./logo.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="./logo.svg" type="image/x-icon" />
       </head>
       <body
-        className={`${inter.className} w-full h-full flex flex-col items-center`}
+        className={`${inter.className} w-full h-full flex flex-col items-center bg-rose-100`}
       >
         <div className="max-w-[1200px] w-full flex flex-col gap-4 px-8">
           <Header />
