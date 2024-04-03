@@ -10,7 +10,7 @@ const renderPosts = async () => {
 };
 
 export default async function Home() {
-  const data = await renderPosts();
+  const data: any = await renderPosts();
   if (!data) {
     return <p>Carregando...</p>;
   }

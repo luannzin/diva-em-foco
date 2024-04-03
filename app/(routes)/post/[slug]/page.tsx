@@ -29,7 +29,7 @@ const renderPost = async ({ slug }: { slug: string }) => {
 // }
 
 const Post = async ({ params }: { params: { slug: string } }) => {
-  const data = await renderPost(params);
+  const data: any = await renderPost(params);
 
   if (!data) return null;
 
