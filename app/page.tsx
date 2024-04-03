@@ -1,16 +1,16 @@
 import Link from "next/link";
 import { headerLinks } from "./config/nav";
-import api from "@/app/services/api";
+import api from "./services/api";
 // import { useEffect } from "react";
 
 const renderPosts = async () => {
-  const data = null;
+  const { data } = await api.get("/api/posts");
 
   return data;
 };
 
 export default async function Home() {
-  const data: any = await renderPosts();
+  const data = await renderPosts();
   if (!data) {
     return <p>Carregando...</p>;
   }

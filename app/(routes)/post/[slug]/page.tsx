@@ -4,34 +4,32 @@ import { Metadata } from "next";
 import api from "@/app/services/api";
 
 const renderPost = async ({ slug }: { slug: string }) => {
-  const data = null;
+  const { data } = await api.get(`/api/posts/${slug}`);
 
   return data;
 };
 
-// export async function generateMetadata({
-//   params,
-// }: {
-//   params: { slug: string };
-// }): Promise<Metadata> {
-//   const data = await renderPost(params);
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const data = await renderPost(params);
 
-//   return {
-//     title: `${data.title} - Diva em Foco - Dicas sobre Cabelos, Skincare e Mais :)`,
-//     description: `${data.content.slice(0, 120)}...`,
-//     keywords: `diva em foco, diva, foco, ${data.keywords}`,
-//     openGraph: {
-//       description: `${data.content.slice(0, 120)}...`,
-//       title: `${data.title} - Diva em Foco - Dicas sobre Cabelos, Skincare e Mais :)`,
-//       type: "article",
-//     },
-//   };
-// }
+  return {
+    title: `${data.title} - Diva em Foco - Dicas sobre Cabelos, Skincare e Mais :)`,
+    description: `${data.content.slice(0, 120)}...`,
+    keywords: `diva em foco, diva, foco, ${data.keywords}`,
+    openGraph: {
+      description: `${data.content.slice(0, 120)}...`,
+      title: `${data.title} - Diva em Foco - Dicas sobre Cabelos, Skincare e Mais :)`,
+      type: "article",
+    },
+  };
+}
 
 const Post = async ({ params }: { params: { slug: string } }) => {
-  const data: any = await renderPost(params);
-
-  if (!data) return null;
+  const data = await renderPost(params);
 
   return (
     <div className="flex flex-col gap-16">
