@@ -31,6 +31,8 @@ const renderPost = async ({ slug }: { slug: string }) => {
 const Post = async ({ params }: { params: { slug: string } }) => {
   const data = await renderPost(params);
 
+  if (!data) return null;
+
   return (
     <div className="flex flex-col gap-16">
       <h1 className="text-4xl font-bold leading-10">{data.title}</h1>
