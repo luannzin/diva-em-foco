@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { headerLinks } from "./config/nav";
+import api from "@/app/services/api";
 // import { useEffect } from "react";
 
 const renderPosts = async () => {
-  const response = await fetch("/api/posts");
-  const data = await response.json();
+  const data = null;
 
   return data;
 };

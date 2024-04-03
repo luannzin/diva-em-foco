@@ -1,35 +1,32 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import "@/app/mdx.css";
 import { Metadata } from "next";
+import api from "@/app/services/api";
 
 const renderPost = async ({ slug }: { slug: string }) => {
-  console.log(slug);
-  const response = await fetch(`/api/posts/${slug}`);
-  const data = await response.json();
-
-  console.log(data);
+  const data = null;
 
   return data;
 };
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata> {
-  const data = await renderPost(params);
+// export async function generateMetadata({
+//   params,
+// }: {
+//   params: { slug: string };
+// }): Promise<Metadata> {
+//   const data = await renderPost(params);
 
-  return {
-    title: `${data.title} - Diva em Foco - Dicas sobre Cabelos, Skincare e Mais :)`,
-    description: `${data.content.slice(0, 120)}...`,
-    keywords: `diva em foco, diva, foco, ${data.keywords}`,
-    openGraph: {
-      description: `${data.content.slice(0, 120)}...`,
-      title: `${data.title} - Diva em Foco - Dicas sobre Cabelos, Skincare e Mais :)`,
-      type: "article",
-    },
-  };
-}
+//   return {
+//     title: `${data.title} - Diva em Foco - Dicas sobre Cabelos, Skincare e Mais :)`,
+//     description: `${data.content.slice(0, 120)}...`,
+//     keywords: `diva em foco, diva, foco, ${data.keywords}`,
+//     openGraph: {
+//       description: `${data.content.slice(0, 120)}...`,
+//       title: `${data.title} - Diva em Foco - Dicas sobre Cabelos, Skincare e Mais :)`,
+//       type: "article",
+//     },
+//   };
+// }
 
 const Post = async ({ params }: { params: { slug: string } }) => {
   const data = await renderPost(params);

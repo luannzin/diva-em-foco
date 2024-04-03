@@ -1,6 +1,7 @@
 "use client";
 
 import { type HeaderLink, headerLinks } from "@/app/config/nav";
+import api from "@/app/services/api";
 import { useEffect, useState } from "react";
 
 const CreatePost = () => {
@@ -43,7 +44,7 @@ const CreatePost = () => {
 
   const createPost = async () => {
     try {
-      await fetch("/api/posts/create", {
+      await api.post("/api/posts/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
