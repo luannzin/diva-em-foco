@@ -46,7 +46,7 @@ export default async function Home() {
                 <div className="flex flex-col gap-2 text-rose-50">
                   <strong className="text-3xl ">{data[0].title}</strong>
                   <span>
-                    {data[0].content.length > 64
+                    {data[0].content && data[0].content.length > 64
                       ? `${data[0].content.slice(0, 64)}...`
                       : data[0].content}
                   </span>
