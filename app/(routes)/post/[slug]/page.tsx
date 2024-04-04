@@ -39,11 +39,11 @@ const Post = async ({ params }: { params: { slug: string } }) => {
           alt={data.title}
           className="w-full rounded-lg aspect-video object-cover h-[400px]"
         />
-        <div className="mt-16">
-          <h1 className="w-full text-4xl text-pretty text-left font-bold">
+        <div className="mt-16 text-black">
+          <h1 className="w-full text-5xl tracking-tight text-pretty text-left font-bold">
             {data.title}
           </h1>
-          <article className="mt-16 flex flex-col gap-2 text-base">
+          <article className="mt-16 flex flex-col gap-2 text-xl tracking-tight">
             <MDXRemote source={data.content} />
           </article>
         </div>
