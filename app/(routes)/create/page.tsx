@@ -14,6 +14,7 @@ const CreatePost = () => {
     content: "",
     keywords: "",
     category: "",
+    imageURL: "",
   });
 
   useEffect(() => {
@@ -50,18 +51,19 @@ const CreatePost = () => {
           "Content-Type": "application/json",
           // Authorization: "Bearer " + authorization,
         },
-        body: JSON.stringify({
+        body: {
           title: data.title,
           content: data.content,
           keywords: data.keywords,
           category: data.category,
-        }),
+          imageURL: data.imageURL,
+        },
       });
     } catch (error) {
       //
     } finally {
       alert("Finalizado");
-      location.reload();
+      // location.reload();
     }
   };
 
@@ -70,7 +72,6 @@ const CreatePost = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-
           createPost();
           // location.reload();
         }}
@@ -82,6 +83,14 @@ const CreatePost = () => {
           placeholder="Nome do post"
           onChange={(e) => {
             setData({ ...data, title: e.target.value });
+          }}
+        />
+        <input
+          className="w-full border border-black rounded-lg py-2 px-4"
+          type="text"
+          placeholder="URL da imagem de capa"
+          onChange={(e) => {
+            setData({ ...data, imageURL: e.target.value });
           }}
         />
         <textarea

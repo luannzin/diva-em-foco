@@ -32,11 +32,22 @@ const Post = async ({ params }: { params: { slug: string } }) => {
   const data = await renderPost(params);
 
   return (
-    <div className="flex flex-col gap-16">
-      <h1 className="text-4xl font-bold leading-10">{data.title}</h1>
-      <article className="flex flex-col gap-2 text-base">
-        <MDXRemote source={data.content} />
-      </article>
+    <div className="flex justify-center gap-16 mt-4">
+      <div className=" w-full flex flex-col items-center ">
+        <img
+          src={data.imageURL}
+          alt={data.title}
+          className="w-full rounded-lg aspect-video object-cover h-[400px]"
+        />
+        <div className="mt-16">
+          <h1 className="w-full text-4xl text-pretty text-left font-bold">
+            {data.title}
+          </h1>
+          <article className="mt-16 flex flex-col gap-2 text-base">
+            <MDXRemote source={data.content} />
+          </article>
+        </div>
+      </div>
     </div>
   );
 };

@@ -17,17 +17,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
+    <html suppressHydrationWarning lang="pt-BR">
       <head>
         <link rel="shortcut icon" href="./logo.svg" />
       </head>
       <body
-        className={`${inter.className} w-full h-full flex flex-col items-center bg-rose-100`}
+        className={`${inter.className} w-full h-full flex flex-col items-center bg-white`}
       >
-        <div className="max-w-[1200px] w-full flex flex-col gap-4 px-8">
-          <Header />
-          {children}
-        </div>
+        <Header />
+        <div className="max-w-[1200px] w-full flex flex-col">{children}</div>
       </body>
     </html>
   );

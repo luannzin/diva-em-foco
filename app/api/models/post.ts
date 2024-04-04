@@ -1,5 +1,5 @@
 import { addDoc, collection, getDocs } from "firebase/firestore";
-import { db } from "../../services/firebase";
+import { db } from "../services/firebase";
 
 const Post = {
   index: async () => {
@@ -19,12 +19,15 @@ const Post = {
     }
   },
   create: async (data: {
-    title: string;
-    content: string;
-    keywords: string;
-    category: string;
+    body: {
+      title: string;
+      content: string;
+      keywords: string;
+      category: string;
+      imageURL: string;
+    };
   }) => {
-    const { title, content, keywords, category } = data;
+    const { title, content, keywords, category, imageURL } = data.body;
 
     try {
       const docRef = await addDoc(collection(db, "posts"), {
@@ -32,8 +35,9 @@ const Post = {
         slug: `${title
           .replace(/[^\w\s]/gi, "")
           .toLowerCase()
-          .replaceAll(" ", "-")}-${Date.now()}`,
+          .replaceAll(" ", "-")}`,
         content: `${content}`,
+        imageURL,
         keywords,
         category,
         author: "luannzin",
