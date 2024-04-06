@@ -58,8 +58,8 @@ const Main = (postData: any) => {
             <div className="flex flex-col gap-4 justify-end h-full w-full backdrop-blur-sm bg-gradient-to-t from-black/90 to-bg-gray-200/50 p-8">
               <Link
                 href={
-                  headerLinks.find((link) => link.tag === data[1].category) ??
-                  "/"
+                  headerLinks.find((link) => link.tag === data[1].category)!
+                    .href ?? "/"
                 }
                 className="p-2 bg-rose-400 text-rose-50 rounded-sm w-max text-sm uppercase select-none"
               >
@@ -92,8 +92,8 @@ const Main = (postData: any) => {
             <div className="flex flex-col gap-4 justify-end h-full w-full backdrop-blur-sm bg-gradient-to-t from-black/90 to-bg-gray-200/50 p-8">
               <Link
                 href={
-                  headerLinks.find((link) => link.tag === data[2].category) ??
-                  "/"
+                  headerLinks.find((link) => link.tag === data[2].category)!
+                    .href ?? "/"
                 }
                 className="p-2 bg-rose-400 text-rose-50 rounded-sm w-max text-sm uppercase select-none"
               >

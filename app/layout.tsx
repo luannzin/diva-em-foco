@@ -8,7 +8,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Diva em Foco - Dicas sobre Cabelos, Skincare e Mais :)",
-  description: "Diva em Foco - Dicas sobre Cabelos, Skincare e Mais :)",
+  description:
+    "Quer ver dicas, novidades e guias completos sobre beleza, perfumes, skincare, maquiagem, cuidados com cabelo e mais? Acesse o blog da Diva em Foco! ❤",
 };
 
 export default function RootLayout({
