@@ -10,7 +10,11 @@ const Post = {
         ...doc.data(),
       }));
 
-      return posts;
+      return posts.sort((a: any, b: any) => {
+        return (
+          new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        );
+      });
     } catch (error) {
       console.error("Error getting documents: ", error);
       return {
@@ -82,6 +86,31 @@ const Post = {
 
       return {
         ...posts.filter((post) => post.author === username),
+      };
+    } catch (error) {
+      console.error("Error getting documents: ", error);
+      return {
+        error: error,
+      };
+    }
+  },
+  category: async (category: string) => {
+    try {
+      const docRef = await getDocs(collection(db, "posts"));
+      const posts = docRef.docs.map((doc) => ({
+        id: doc.id,
+        ...(doc.data() as { category: string }),
+      }));
+
+      return {
+        ...posts
+          .filter((post) => post.category === category)
+          .sort((a: any, b: any) => {
+            return (
+              new Date(b.created_at).getTime() -
+              new Date(a.created_at).getTime()
+            );
+          }),
       };
     } catch (error) {
       console.error("Error getting documents: ", error);

@@ -22,7 +22,7 @@ export default function RootLayout({
         <link rel="shortcut icon" href="./logo.svg" />
       </head>
       <body
-        className={`${inter.className} w-full h-full flex flex-col items-center bg-white`}
+        className={`${inter.className} w-full h-full flex flex-col items-center bg-white overflow-x-hidden`}
       >
         <Header />
         <div className="max-w-[1200px] w-full flex flex-col">{children}</div>
