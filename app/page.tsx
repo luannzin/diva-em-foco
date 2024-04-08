@@ -14,6 +14,10 @@ export default async function Home() {
     return <p>Carregando...</p>;
   }
 
+  if (!data[0] || !data[1] || !data[2]) {
+    return <p>Carregando...</p>;
+  }
+
   return (
     <div>
       <main>
