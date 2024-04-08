@@ -29,7 +29,7 @@ export default async function Home() {
           <strong>Destaques</strong>
         </span>
         <div className="flex w-full gap-16 flex-wrap">
-          {data.slice(3).map((post, index) => {
+          {data.slice(3).map((post: any, index: number) => {
             return <PostThumb key={index} data={post} />;
           })}
         </div>
