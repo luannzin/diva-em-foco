@@ -33,11 +33,7 @@ const Main = (postData: any) => {
               <h2>
                 <strong className="text-3xl">{data[0].title}</strong>
               </h2>
-              <p>
-                {data[0].content && data[0].content.length > 64
-                  ? `${data[0].content.slice(0, 64)}...`
-                  : data[0].content}
-              </p>
+              <p>{data[0].description}</p>
             </div>
           </div>
         </div>
@@ -70,11 +66,7 @@ const Main = (postData: any) => {
                 <h2>
                   <strong className="text-3xl">{data[1].title}</strong>
                 </h2>
-                <p>
-                  {data[1].content && data[1].content.length > 64
-                    ? `${data[1].content.slice(0, 64)}...`
-                    : data[1].content}
-                </p>
+                <p>{data[1].description}</p>
               </div>
             </div>
           </div>
@@ -105,11 +97,7 @@ const Main = (postData: any) => {
                 <h2>
                   <strong className="text-3xl">{data[2].title}</strong>
                 </h2>
-                <p>
-                  {data[2].content && data[2].content.length > 64
-                    ? `${data[2].content.slice(0, 64)}...`
-                    : data[2].content}
-                </p>
+                <p>{data[2].description}</p>
               </div>
             </div>
           </div>

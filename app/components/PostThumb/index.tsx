@@ -18,11 +18,7 @@ const PostThumb = ({ data }: { data: any }) => {
             <h2 className="text-xl">
               <strong>{data.title}</strong>
             </h2>
-            <span>
-              {data.content && data.content.length > 32
-                ? `${data.content.slice(0, 32)}...`
-                : data.content}
-            </span>
+            <span>{data.description}</span>
           </div>
           <div className="flex gap-16 items-end max-sm:justify-center">
             <Category href={"/categoria/maquiagem"}>Maquiagem</Category>

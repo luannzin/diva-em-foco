@@ -18,10 +18,10 @@ export async function generateMetadata({
 
   return {
     title: `${data.title} - Diva em Foco - Dicas sobre Cabelos, Skincare e Mais :)`,
-    description: `${data.content.slice(0, 120)}...`,
-    keywords: `diva em foco, diva, foco, ${data.keywords}`,
+    description: data.description,
+    keywords: data.keywords,
     openGraph: {
-      description: `${data.content.slice(0, 120)}...`,
+      description: data.description,
       title: `${data.title} - Diva em Foco - Dicas sobre Cabelos, Skincare e Mais :)`,
       type: "article",
     },

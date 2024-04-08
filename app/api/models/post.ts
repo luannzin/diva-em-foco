@@ -1,5 +1,6 @@
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { db } from "../services/firebase";
+import removeMarkdown from "@/app/utils/remove-markdown";
 
 const Post = {
   index: async () => {
@@ -41,6 +42,7 @@ const Post = {
           .toLowerCase()
           .replaceAll(" ", "-")}`,
         content: `${content}`,
+        description: `${removeMarkdown(content.slice(0, 64))}...`,
         imageURL,
         keywords,
         category,
