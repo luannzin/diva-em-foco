@@ -4,7 +4,7 @@ import Logo from "../Logo";
 
 const Header = () => {
   return (
-    <header className="h-20 flex justify-center w-full items-center bg-rose-900 border-b border-b-rose-700">
+    <header className="max-xl:px-8 h-20 flex justify-center w-full items-center bg-rose-900 border-b border-b-rose-700">
       <div className="max-w-[1200px] flex justify-between items-center w-full">
         <Link href={"/"} className="text-xl text-black flex items-center gap-2">
           <Logo className="stroke-rose-50" width={24} height={24} />
@@ -12,7 +12,7 @@ const Header = () => {
             Diva em Foco
           </strong>
         </Link>
-        <nav className="flex items-center gap-4 ">
+        <nav className="flex items-center gap-4 max-lg:hidden">
           {headerLinks.map((link: HeaderLink) => (
             <Link key={link.tag} href={link.href} className="p-2 group">
               <strong className="text-pretty text-sm text-rose-50 py-2 border-b border-b-transparent group-hover:border-b-rose-50 transition-all duration-150 ease-in-out uppercase">

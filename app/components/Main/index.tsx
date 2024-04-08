@@ -6,9 +6,9 @@ const Main = (postData: any) => {
   const { data } = postData;
 
   return (
-    <div className="w-screen m-margin-left-align-center flex flex-col items-center h-[1200px] overflow-hidden">
+    <div className="w-screen m-margin-left-align-center flex flex-col items-center max-xl:h-[1800px] h-[1200px] overflow-hidden">
       <Link
-        className={`h-full w-full rounded-lg `}
+        className={`max-h-[600px] h-full w-full rounded-lg `}
         href={`/post/${data[0].slug}`}
       >
         <div
@@ -18,7 +18,7 @@ const Main = (postData: any) => {
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
           }}
-          className="flex flex-col justify-end w-full h-full rounded-lg gap-4"
+          className="flex flex-col justify-end w-full h-full rounded-lg gap-4 "
         >
           <div className="flex flex-col gap-4 justify-end h-full w-full backdrop-blur-sm bg-gradient-to-t from-black/90 to-bg-gray-200/50 p-8">
             <Category
@@ -43,7 +43,7 @@ const Main = (postData: any) => {
         </div>
       </Link>
 
-      <div className="flex w-full h-full rounded-sm">
+      <div className="flex max-xl:flex-col w-full h-full rounded-sm">
         <Link
           className={`h-full w-full rounded-lg `}
           href={`/post/${data[1].slug}`}

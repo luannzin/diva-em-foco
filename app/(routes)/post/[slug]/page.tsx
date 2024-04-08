@@ -32,7 +32,7 @@ const Post = async ({ params }: { params: { slug: string } }) => {
   const data = await renderPost(params);
 
   return (
-    <div className="flex justify-center gap-16 mt-4">
+    <div className="flex justify-center gap-16 mt-4 ">
       <div className=" w-full flex flex-col">
         <img
           src={data.imageURL}

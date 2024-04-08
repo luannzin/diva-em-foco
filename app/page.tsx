@@ -24,8 +24,8 @@ export default async function Home() {
       <main>
         <Main data={data} />
       </main>
-      <div className="my-16 flex flex-col gap-8">
-        <span className="text-3xl">
+      <div className="my-16 flex flex-col gap-8 max-xl:px-8">
+        <span className="text-3xl max-sm:text-center">
           <strong>Destaques</strong>
         </span>
         <div className="flex w-full gap-16 flex-wrap">
