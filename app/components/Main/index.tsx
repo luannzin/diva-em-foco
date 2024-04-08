@@ -1,5 +1,6 @@
 import { headerLinks } from "@/app/config/nav";
 import Link from "next/link";
+import Category from "../Category";
 
 const Main = (postData: any) => {
   const { data } = postData;
@@ -20,22 +21,23 @@ const Main = (postData: any) => {
           className="flex flex-col justify-end w-full h-full rounded-lg gap-4"
         >
           <div className="flex flex-col gap-4 justify-end h-full w-full backdrop-blur-sm bg-gradient-to-t from-black/90 to-bg-gray-200/50 p-8">
-            <Link
+            <Category
               href={
                 headerLinks.find((link) => link.tag === data[0].category)!
                   .href ?? "/"
               }
-              className="p-2 bg-rose-400 text-rose-50 rounded-sm w-max text-sm uppercase select-none"
             >
               {data[0].category || "Sem categoria"}
-            </Link>
+            </Category>
             <div className="flex flex-col gap-2 text-rose-50">
-              <strong className="text-3xl ">{data[0].title}</strong>
-              <span>
+              <h2>
+                <strong className="text-3xl">{data[0].title}</strong>
+              </h2>
+              <p>
                 {data[0].content && data[0].content.length > 64
                   ? `${data[0].content.slice(0, 64)}...`
                   : data[0].content}
-              </span>
+              </p>
             </div>
           </div>
         </div>
@@ -56,22 +58,23 @@ const Main = (postData: any) => {
             className="flex flex-col justify-end w-full h-full rounded-lg gap-4"
           >
             <div className="flex flex-col gap-4 justify-end h-full w-full backdrop-blur-sm bg-gradient-to-t from-black/90 to-bg-gray-200/50 p-8">
-              <Link
+              <Category
                 href={
                   headerLinks.find((link) => link.tag === data[1].category)!
                     .href ?? "/"
                 }
-                className="p-2 bg-rose-400 text-rose-50 rounded-sm w-max text-sm uppercase select-none"
               >
                 {data[1].category || "Sem categoria"}
-              </Link>
+              </Category>
               <div className="flex flex-col gap-2 text-rose-50">
-                <strong className="text-3xl ">{data[1].title}</strong>
-                <span>
+                <h2>
+                  <strong className="text-3xl">{data[1].title}</strong>
+                </h2>
+                <p>
                   {data[1].content && data[1].content.length > 64
                     ? `${data[1].content.slice(0, 64)}...`
                     : data[1].content}
-                </span>
+                </p>
               </div>
             </div>
           </div>
@@ -90,22 +93,23 @@ const Main = (postData: any) => {
             className="flex flex-col justify-end w-full h-full rounded-lg gap-4"
           >
             <div className="flex flex-col gap-4 justify-end h-full w-full backdrop-blur-sm bg-gradient-to-t from-black/90 to-bg-gray-200/50 p-8">
-              <Link
+              <Category
                 href={
                   headerLinks.find((link) => link.tag === data[2].category)!
                     .href ?? "/"
                 }
-                className="p-2 bg-rose-400 text-rose-50 rounded-sm w-max text-sm uppercase select-none"
               >
                 {data[2].category || "Sem categoria"}
-              </Link>
+              </Category>
               <div className="flex flex-col gap-2 text-rose-50">
-                <strong className="text-3xl ">{data[2].title}</strong>
-                <span>
+                <h2>
+                  <strong className="text-3xl">{data[2].title}</strong>
+                </h2>
+                <p>
                   {data[2].content && data[2].content.length > 64
                     ? `${data[2].content.slice(0, 64)}...`
                     : data[2].content}
-                </span>
+                </p>
               </div>
             </div>
           </div>

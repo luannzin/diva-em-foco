@@ -2,11 +2,12 @@ import api from "@/app/services/api";
 import Main from "@/app/components/Main";
 import { Metadata } from "next";
 import { headerLinks } from "@/app/config/nav";
+import PostThumb from "@/app/components/PostThumb";
 
 const renderPosts = async ({ slug }: { slug: string }) => {
   const { data } = await api.get(`/api/posts/category/${slug}`);
 
-  return data;
+  return Object.values(data);
 };
 
 export async function generateMetadata({
@@ -48,6 +49,10 @@ export default async function Category({
 }) {
   const data = await renderPosts(params);
 
+  console.log(data);
+
+  const metadata = headerLinks.find((link) => link.tag === params.slug)!;
+
   if (!data) {
     return <p>Carregando...</p>;
   }
@@ -58,9 +63,20 @@ export default async function Category({
 
   return (
     <div>
-      <main>
+      <div className="my-16 flex flex-col gap-8">
+        <span className="text-3xl">
+          <strong>{metadata.name}</strong>
+        </span>
+        <div className="flex w-full justify-between gap-16 flex-wrap">
+          {data.map((post: any, index: number) => {
+            return <PostThumb key={index} data={post} />;
+          })}
+        </div>
+      </div>
+
+      {/* <main>
         <Main data={data} />
-      </main>
+      </main> */}
     </div>
   );
 }
