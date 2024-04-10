@@ -5,7 +5,7 @@ import Category from "../Category";
 const Main = (postData: any) => {
   const { data } = postData;
 
-  if (!headerLinks.find((link) => link.tag === data[0].category)!.href) return;
+  if (!headerLinks.find((link) => link.tag === data[0].category)!?.href) return;
 
   return (
     <div className="w-screen m-margin-left-align-center flex flex-col items-center max-xl:h-[1800px] h-[1200px] overflow-hidden">
