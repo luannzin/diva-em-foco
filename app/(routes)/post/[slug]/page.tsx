@@ -4,7 +4,16 @@ import { Metadata } from "next";
 import api from "@/app/services/api";
 
 const renderPost = async ({ slug }: { slug: string }) => {
-  const { data } = await api.get(`/api/posts/${slug}`);
+  const response = await fetch(
+    process.env.NEXT_PUBLIC_URL + `/api/posts/${slug}`,
+    {
+      next: {
+        revalidate: 0,
+      },
+    }
+  );
+
+  const data = await response.json();
 
   return data;
 };

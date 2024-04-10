@@ -4,7 +4,13 @@ import PostThumb from "./components/PostThumb";
 // import { useEffect } from "react";
 
 const renderPosts = async () => {
-  const { data } = await api.get("/api/posts");
+  const response = await fetch(process.env.NEXT_PUBLIC_URL + "/api/posts", {
+    next: {
+      revalidate: 0,
+    },
+  });
+
+  const data = await response.json();
 
   return data;
 };

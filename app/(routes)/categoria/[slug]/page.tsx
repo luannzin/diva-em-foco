@@ -5,9 +5,18 @@ import { headerLinks } from "@/app/config/nav";
 import PostThumb from "@/app/components/PostThumb";
 
 const renderPosts = async ({ slug }: { slug: string }) => {
-  const { data } = await api.get(`/api/posts/category/${slug}`);
+  const response = await fetch(
+    process.env.NEXT_PUBLIC_URL + `/api/posts/category/${slug}`,
+    {
+      next: {
+        revalidate: 0,
+      },
+    }
+  );
 
-  return Object.values(data);
+  const data = await response.json();
+
+  return data;
 };
 
 export async function generateMetadata({
@@ -48,8 +57,6 @@ export default async function Category({
   params: { slug: string };
 }) {
   const data = await renderPosts(params);
-
-  console.log(data);
 
   const metadata = headerLinks.find((link) => link.tag === params.slug)!;
 
